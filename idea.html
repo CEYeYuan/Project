@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<HTML>
+	<?php include("model.php"); ?> 
+	
+	<head> 
+		<title>Login</title>
+	</head>
+	
+	<body>
+		<div>
+			<form action="model.php" method="post">
+				<p>Title
+					<input type="text" name="title" /> 
+				</p>
+
+				<p>Market
+					<input type="radio" name="market" value="health" checked="checked"/> health
+					<input type="radio" name="market" value="technology" /> technology  
+					<input type="radio" name="market" value="education" /> education
+					<input type="radio" name="market" value="finance" /> finance
+					<input type="radio" name="market" value="travel" /> travel
+				</p>
+
+				<p>Description</p>
+				<p>
+					<textarea name="description" rows="6" cols="40"></textarea>	
+				</p>	
+				
+				<p>
+					<input type="submit" />
+					<a href="signup.html">Sign Up </a>
+				</p>		
+
+				
+			</form>	
+			
+		</div>
+		
+				
+				
+	</body>
+</HTML>
