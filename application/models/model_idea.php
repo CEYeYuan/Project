@@ -35,6 +35,18 @@ class Model_idea extends CI_Model{
 	}
 
 
+	public function query_byIid($Iid){
+		$sql="select * from Idea where Iid='$Iid'";
+		$query=$this->db->query($sql);
+		if ($query->num_rows()==1){
+			return $query;
+		}else{
+			return fasle;
+		}
+
+	}
+
+
 
 
 

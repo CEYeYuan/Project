@@ -8,7 +8,9 @@ class Main extends CI_Controller {
 		
 		//The default function
 		// load the "login.php" page
+		
 		$this->login();
+
 		
 	}
 	public function login() {
@@ -182,10 +184,9 @@ class Main extends CI_Controller {
 			$this->load->model('model_idea');
 			if($result=$this->model_idea->query_myIdea()){
 				foreach($result->result() as $row){
-					echo $row->title;
-					echo $row->description;
-					echo $row->market;
-					echo $row->dateOfInit;
+					$url=base_url()."index.php/Ideas/index/$row->Iid";
+					echo "<a href='$url'>$row->Iid</a>";
+					echo "<br/>";
 				}
 
 			}else{
