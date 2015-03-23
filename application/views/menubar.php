@@ -13,13 +13,13 @@
 <div id="navigation">
 	<ul class="links">
 		<li>
-			<a href=<?php echo base_url() . "/index.php/main/members"; ?>>Home</a>
+			<a href=<?php echo base_url() . "index.php/main/members"; ?>>Home</a>
 		</li>
 		<li class="active">
-			<a href=<?php echo base_url() . "/index.php/main/members"; ?>>Browse</a>
+			<a href=<?php echo base_url() . "index.php/main/members"; ?>>Browse</a>
 		</li>
 		<li>
-			<a href=<?php echo base_url() . "/index.php/main/share_ideas"; ?>>Share</a>
+			<a href=<?php echo base_url() . "index.php/main/share_page"; ?>>Share</a>
 		</li>
 	</ul>
 	<a class="rightside" id="farRight" href='<?php echo base_url() . 

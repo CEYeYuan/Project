@@ -38,7 +38,7 @@ class Main extends CI_Controller {
 			// get the username from the form
 			
 			$data=array(
-				'email'=>$this->input->post('email'),
+				'username'=>$this->input->post('email'),
 				'is_logged_in'=>1
 				);			
 			$this->session->set_userdata($data);
@@ -138,8 +138,28 @@ class Main extends CI_Controller {
 	}
 
 
+	public function share_page(){
+		
+		if($this->session->userdata('is_logged_in')){
+			$this->load->view('share_view');
+		}else{
+			$this->load->view('pleaseLogin');
+		}
+
+	}
+
 	public function share_ideas(){
-		$this->load->view('share_view');
+		if($this->session->userdata('is_logged_in')){
+			$this->load->model('model_idea');
+			if ($this->model_idea->add_idea()===true){
+				echo "success!";		
+				}	else{
+				echo "Problem adding to database";
+				}
+				$this->load->view('share_view');
+		}else{
+			$this->load->view('pleaseLogin');
+		}
 
 	}
 

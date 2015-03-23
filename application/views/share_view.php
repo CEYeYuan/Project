@@ -16,7 +16,7 @@
 	
 	<body>
 		<div>
-			<form action="model.php" method="post">
+			<form action="share_ideas" method="post">
 				<p>Title
 					<input type="text" name="title" /> 
 				</p>
@@ -36,6 +36,7 @@
 				
 				<p>
 					<input type="submit" />
+		
 				</p>		
 
 				

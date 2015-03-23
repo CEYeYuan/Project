@@ -18,9 +18,12 @@
 		<?php
 			echo form_open('index.php/main/login_validation');
 			echo validation_errors();
+	
 			echo form_input('email',$this->input->post('email'),"placeholder='Email'");
-			echo "<br/>";
+		
+
 			echo form_password('password', '', "placeholder='Password'");
+		
 		?>
 	</div>
 	

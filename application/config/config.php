@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/startup/';
+$config['base_url']	= 'http://localhost/startup';
 
 // The following (commented out) is the base_url for production
 // $config['base_url'] = 'http://www.lac-main.duckdns.org/communityFund/';
