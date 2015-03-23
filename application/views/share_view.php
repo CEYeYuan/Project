@@ -16,7 +16,8 @@
 	
 	<body>
 		<div>
-			<form action="share_ideas" method="post">
+			<form action='<?php echo base_url();?>/index.php/main/share_ideas' method="post">
+				<?php echo validation_errors();?>
 				<p>Title
 					<input type="text" name="title" /> 
 				</p>

@@ -49,7 +49,7 @@ class Main extends CI_Controller {
 			$this->load->view('home_view');
 		} else{
 			
-			$this->load->view('pleaseLogin');
+			$this->index();
 			//if the validation test failed, redirect to the 'restricted page'
 		}
 
@@ -148,23 +148,34 @@ class Main extends CI_Controller {
 
 	}
 
+	
 	public function share_ideas(){
 		if($this->session->userdata('is_logged_in')){
-			$this->load->model('model_idea');
-			if ($this->model_idea->add_idea()===true){
-				echo "success!";		
+
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('title','Email','
+			required|trim|xss_clean|callback_validate_credientials');
+			$this->form_validation->set_rules('title','Title','required|trim|xss_clean');
+			$this->form_validation->set_rules('description','Description','required|trim|xss_clean');
+			if ($this->form_validation->run()){
+				$this->load->model('model_idea');
+
+				if ($this->model_idea->add_idea()===true){
+					echo "success!";		
 				}	else{
-				echo "Problem adding to database";
+					echo "Problem adding to database";
+					$this->load->view('share_view');
 				}
+			}else{
 				$this->load->view('share_view');
-		}else{
-			$this->load->view('pleaseLogin');
+			}
 		}
 
+		else{
+			$this->load->view('pleaseLogin');
+		}
 	}
-
-
-	}
+}
 	
 
 

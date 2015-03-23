@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel='stylesheet' href='assets/stylesheets/log.css' type='text/css' />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	
-	<meta charset="utf-8">
+	<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/log.css' />
 	<title>Login page</title>
 	
 </head>

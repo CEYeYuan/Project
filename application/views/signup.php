@@ -35,7 +35,7 @@
 		<!-- DAVID ADDED -->
 		<!-- The Cancel button redirects to the home page 
 		with some JavaScript code for the "onClick" attribute-->
-		<button class="login_bt" type="button" onClick='window.location.href = "<?php echo base_url(); ?>main"'>Cancel</button>
+		<button class="login_bt" type="button" onClick='window.location.href = "<?php echo base_url(); ?>"'>Cancel</button>
 		
 		<?php
 		echo "<p>";
