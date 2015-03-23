@@ -1,0 +1,39 @@
+.tabs{
+	float: left;
+	margin-left: 35%;
+	display: inline-block;
+}
+.tab-links:after {
+	float: center;
+	display: block;
+	clear: both;
+	content: '';
+}
+.tab-links li {
+	padding-left: 15px;
+	float: center;
+	margin: 0px 5px;
+	float: left;
+	list-style-type: none;
+}
+.tab-links a {
+	font-size: 18px;
+	padding: 9px 15px;
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+	float: center;
+}
+.active a {
+	border-bottom: 1px solid black;
+}
+.tab-content {
+	font-style: bold;
+	font-weight: 800;
+}
+.tab {
+	display:none;
+}
+.tab.active {
+	display: block;
+}

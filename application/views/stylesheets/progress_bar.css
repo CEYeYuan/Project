@@ -1,0 +1,26 @@
+#progress_bar_container {
+	text-align: left;
+	margin: 0 auto;
+}
+#progress_bar_container a {
+	font-size: 140%;
+	top: 50%;
+}
+#progress_bar {
+	background-color: #FFB2FF;
+	width: 100%;
+	border-radius: 10px;
+	padding: 3px;
+	float: left;
+	width: 300px;
+}
+
+#progress_bar > div {
+	text-align: right;
+	background-color:#FF75FF;
+	height: 20px;
+	border-radius:  10px;
+	width: 80%;
+	padding-right: 10px;
+	display: inline-block;
+}

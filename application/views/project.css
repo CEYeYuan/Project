@@ -1,0 +1,72 @@
+.tabs, div.projectInfo {
+	width: 100%;
+	display: inline-block;
+	text-align: left;
+}
+.tab-links:after, div.projectInfo:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+.tab-links li, .project-tabs li {
+	margin: 0px 5px;
+	float: left;
+	list-style-type: none;
+}
+.tab-links a {
+	font-size: 18px;
+	padding: 9px 15px;
+	display: inline-block;
+	text-decoration: none;
+	border-bottom: 1px solid black;
+}
+.project-tabs a {	
+	font-size: 18px;
+	padding: 9px 15px;
+	display: inline-block;
+	text-decoration: none;
+	background-color: grey;
+	border-radius: 5px;
+}
+.tab {
+	display: none;
+}
+.tab.active {
+	display: block;
+}
+.form {
+	text-align: left;
+}
+div.left-side {
+	width: 25%;
+	padding-left: 20%;
+	float: left;
+	text-align: left;
+}
+div.right-side {
+	width: 50%;
+	float: left;
+	font-size: 18px;
+	text-align: left;
+	line-height: 250%;
+}
+div.fund {
+	text-align: left;
+	float: left;
+	padding-left: 250px;
+	clear: both;
+}
+div.fund b {
+	text-align: left;
+	font-size: 26px;
+}
+div.fund a {
+	padding: 5px 15px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	background-color: grey;
+}
+div.fund a:hover {
+	background-color: blue;
+}

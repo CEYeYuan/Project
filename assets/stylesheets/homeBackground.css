@@ -1,0 +1,14 @@
+.background {
+	background: url("../images/randomMacro.jpg") no-repeat center center fixed;
+	background-size: cover;
+	display: block;
+	padding-top: 200px;
+	padding-bottom: 400px;
+	text-align: center;
+	width: 100%;
+	float: center;
+}
+
+.background > h1{
+	font-size: 48px;
+}

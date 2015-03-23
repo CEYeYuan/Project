@@ -1,0 +1,16 @@
+/* The Links class */
+.Links {
+	padding: 10px;
+}
+
+/* All the <a> tags in Links class */
+.Links a {
+	font-size: 18px;
+	padding: 10px;
+	margin-bottom: 10px;
+	display: inline-block;
+	text-decoration: none;
+	background-color: grey;
+	border-radius: 5px;
+	color: blue;
+}

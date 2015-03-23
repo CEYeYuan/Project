@@ -1,0 +1,30 @@
+.catList {
+	width: 100%;
+	top: 0px;
+	text-align: center;
+}
+
+.catList li, .catList a {
+	float: center;
+	margin-top: 0px;
+	font-size: 18px;
+	padding: 25px;
+	text-decoration: none;
+	list-style-type: none;
+	display: inline-block;
+}
+
+.catagory > h3{
+	text-align: center;
+	float: center;
+}
+
+.catList a {
+	border-radius: 50px;
+	border: 1px solid #C0C0C0;
+}
+
+.catList a:hover {
+	color: black;
+	background-color: #00FFFF;
+}

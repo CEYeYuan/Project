@@ -1,0 +1,123 @@
+.create {
+	width: 100%;
+	top: 0px;
+	text-align: center;	
+	float: center;
+	background: url("../images/forcePerspective.jpg") no-repeat center center fixed;
+	background-size: cover;
+	padding-top: 200px;
+	padding-bottom: 350px;
+}
+#first > h1 {
+	margin-top: 150px;
+	height: 50%;
+	color: white;
+}
+.start {
+	border-radius: 5px;
+	float: center;
+	background: #99C2FF;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	color: white;
+	letter-spacing: 5px;
+	font-weight: 900;
+	font-size: 24px;
+	border: none;
+
+}
+
+.start:hover {
+	background: #66A3FF;
+	cursor: pointer;
+}
+.tab {
+	opacity: 0;
+	display: none;
+}
+.tab.active {
+	opacity: 1;
+	display: block;
+}
+
+#second, #third, #fourth, #fifth, #sixth {
+	margin-top: 150px;
+	background-color: white;
+	text-align: center;
+	border: 2px solid;
+	border-radius: 25px;
+	width: 50%;
+	float: center;
+	margin-left: 250px;
+}
+#third, #fourth,  #fifth, #sixth {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+#third > a, #fourth > a,  #fifth > a, #sixth > a{
+	font-size: 24px;
+	display: inline-block;
+}
+
+input {
+	padding-top: 5px;
+	float: left;
+}
+
+
+lspan {
+	float: left;
+	margin-right: 25px;
+	margin-left: 20px;
+}
+
+rspan, confirm {
+	margin-left: 20px;
+	padding-top: 5px;
+	display: inline-block;
+	opacity: 1;
+	font-size: 12px;
+	float: left;
+}
+
+confirm, date {
+	margin-left: 21px;
+	display: inline-block;
+	opacity: 1;
+	border-radius: 10px;
+	background: #99C2FF;
+	padding: 5px;
+	border: 1px solid;
+}
+
+#third confirm {
+	display: none;
+}
+
+confirm:hover, date:hover {
+	cursor: pointer;
+	cursor: pointer;
+}
+
+
+#sixth confirm {
+	clear: both;
+}
+.project li {
+	float: left;
+	margin-top: 50px;
+	border: 2px solid;
+	border-radius: 25px;
+	padding: 25px;
+	background: white;
+	margin-left: 5px;
+	opacity: 0.9;
+	list-style-type: none;
+	opacity: 0.9;
+}
+.project li:first-child {
+	margin-left: 20%;
+}

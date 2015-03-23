@@ -1,0 +1,53 @@
+.profile {
+	text-align: center;
+	border-bottom: 2px solid #C0C0C0;
+	position: relative;
+}
+
+.left-side {
+	float: center;
+	display: inline-block;
+	text-align: center;
+}
+
+.left-side edit {
+	display: block;
+	font-size: 18px;
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
+	background: #CCCCCC;
+	box-shadow: 1px 1px 3px;
+}
+
+.left-side done {
+	display: none;
+	font-size: 18px;
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
+	background: #CCCCCC;
+	box-shadow: 1px 1px 3px;
+}
+
+.left-side edit:hover, .left-side done:hover {
+	cursor: pointer;
+	color: white;
+	font-style: bold;
+	font-weight: 500;
+	background: #297ACC;
+}
+.right-side {
+
+	margin-left: 10px;
+	display: inline-block;
+	font-size: 18px;
+	text-align: left;
+	line-height: 250%;
+}
+.right-side .user > a:first-child{
+	font-size: 30px;
+}
+.right-side li {
+	clear: both;
+	list-style-type: none;
+}
+
