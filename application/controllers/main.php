@@ -175,6 +175,29 @@ class Main extends CI_Controller {
 			$this->load->view('pleaseLogin');
 		}
 	}
+
+
+	public function myIdeas(){
+		if ($this->session->userdata('is_logged_in')){
+			$this->load->model('model_idea');
+			if($result=$this->model_idea->query_myIdea()){
+				foreach($result->result() as $row){
+					echo $row->title;
+					echo $row->description;
+					echo $row->market;
+					echo $row->dateOfInit;
+				}
+
+			}else{
+				echo "false";
+			}
+		
+		
+		}
+		else{
+			$this->load->view('pleaseLogin');
+		}
+	}
 }
 	
 

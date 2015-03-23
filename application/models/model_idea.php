@@ -22,6 +22,19 @@ class Model_idea extends CI_Model{
 	}
 
 
+	public function query_myIdea(){
+			
+		$user=$this->session->userdata('username');
+		$sql="select * from User natural join Idea where username='$user'";
+		$query=$this->db->query($sql);
+		if ($query->num_rows()>=1){
+			return $query;
+		}else{
+			return false;
+		}
+	}
+
+
 
 
 

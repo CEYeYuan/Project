@@ -26,7 +26,7 @@
 
 	<a class="rightside" id="farRight" href='<?php echo base_url() . 
 		"index.php/main/logout"; ?>'>Logout</a>
-	<a class="rightside" href='<?php echo base_url(); ?>index.php/main/share_ideas'>My Idea</a>	
+	<a class="rightside" href='<?php echo base_url(); ?>index.php/main/myIdeas'>My Idea</a>	
 	
 	
 
