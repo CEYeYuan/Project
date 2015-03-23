@@ -11,7 +11,7 @@
 <body>
 <div id="container">
 	<div class="header">
-		<h1>Startup</h1>
+		<h1>Startup Ideas</h1>
 	</div>
 	
 	<div class="body">

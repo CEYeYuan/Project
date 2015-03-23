@@ -13,29 +13,19 @@
 <div id="navigation">
 	<ul class="links">
 		<li>
-			<a href=<?php echo base_url() . "home"; ?>>Community Fund</a>
+			<a href=<?php echo base_url() . "/index.php/main/members"; ?>>Home</a>
 		</li>
 		<li class="active">
-			<a href=<?php echo base_url() . "welcome"; ?>>Discover</a>
+			<a href=<?php echo base_url() . "/index.php/main/members"; ?>>Browse</a>
 		</li>
 		<li>
-			<a href=<?php echo base_url() . "projectCreate"; ?>>Create</a>
+			<a href=<?php echo base_url() . "/index.php/main/share_ideas"; ?>>Share</a>
 		</li>
 	</ul>
 	<a class="rightside" id="farRight" href='<?php echo base_url() . 
 		"index.php/main/logout"; ?>'>Logout</a>
-	<a class="rightside" href='<?php echo base_url() . 
-		"index.php/profile"; ?>' >Profile</a>
+	
 	
 	<!-- Admin console code -->
-	<?php 
-		// add the link to the admin console only if user is admin
-		
-		// NOTE: To test this, log in as admin@admin.com
-		if ($this->session->userdata('admin')) {
-			echo "<a class='rightside' href='";
-			echo "" . base_url() . "adminConsole";
-			echo "'>Admin Console</a>";
-		}
-	?>
+
 </div>

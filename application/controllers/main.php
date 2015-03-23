@@ -32,10 +32,6 @@ class Main extends CI_Controller {
 		if ($this->form_validation->run()){
 			//if the username/password pass the validation test
 			
-			// ---------------------------------
-			// Check if admin
-			// ---------------------------------
-			
 			// load the model
 			$this->load->model('model_users');
 			
@@ -61,7 +57,7 @@ class Main extends CI_Controller {
 	
 	public function members(){
 		if($this->session->userdata('is_logged_in')){
-			redirect ('index.php/welcome');
+			$this->load->view('home_view');
 		}else{
 			$this->load->view('pleaseLogin');
 		}
@@ -69,9 +65,6 @@ class Main extends CI_Controller {
 	}
 
 
-	public function restricted(){
-		$this->load->view('pleaseLogin');
-	}
 
 
 
@@ -142,6 +135,12 @@ class Main extends CI_Controller {
 			$this->load->view('signup');
 		}
 	
+	}
+
+
+	public function share_ideas(){
+		$this->load->view('share_view');
+
 	}
 
 

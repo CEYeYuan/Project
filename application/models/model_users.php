@@ -49,35 +49,6 @@ class Model_users extends CI_Model{
 
 	}
 
-	public function update_profile(){
-    	$tmp_user=$this->db->get('User');
-
-		if($tmp_user){
-			if (md5($this->input->post('pswd'))=="d41d8cd98f00b204e9800998ecf8427e")
-			$data=array(
-				//'password'=>md5($this->input->post('pswd')),
-				'firstName'=>$this->input->post('fn'),
-				'lastName'=>$this->input->post('ln'),
-				'gender'=>$this->input->post('gender'),
-				'DateofBirth'=>$this->input->post('year')."y".$this->input->post('month')."m".
-				$this->input->post('day')."d"
-				); else
-			$data=array(
-				'password'=>md5($this->input->post('pswd')),
-				'firstName'=>$this->input->post('fn'),
-				'lastName'=>$this->input->post('ln'),
-				'gender'=>$this->input->post('gender'),
-				'DateofBirth'=>$this->input->post('year')."y".$this->input->post('month')."m".
-				$this->input->post('day')."d"
-				);
-            $email = mysql_real_escape_string($this->session->userdata('email'));
-			$where = "username = '$email'"; 
-			$this->db->update("User",$data,$where);
-			return true;}
-		else{
-			return false;
-		}
-	}
 
 	public function query_fund(){
 		$email = mysql_real_escape_string($this->session->userdata('email'));
