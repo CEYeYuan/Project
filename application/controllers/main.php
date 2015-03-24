@@ -189,6 +189,8 @@ class Main extends CI_Controller {
 					echo "<br/>";
 				}
 
+				//$this->load->view('myIdeas_view');
+				
 			}else{
 				echo "false";
 			}
