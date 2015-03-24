@@ -78,7 +78,11 @@ class Ideas extends CI_Controller{
 	public function myIdeas(){
 		if ($this->session->userdata('is_logged_in')){
 			$this->load->model('model_idea');
-			if($this->model_idea->query_myIdea()){
+			if($this->model_idea->query_myIdea()===0){
+				echo "You don't have any ideas posted yet, post your idea now!";
+				$this->share_ideas();
+			}
+			elseif($this->model_idea->query_myIdea()){
 				/*foreach($result->result() as $row){
 					$url=base_url()."index.php/Ideas/index/$row->Iid";
 					echo "<a href='$url'>$row->Iid</a>";
@@ -88,7 +92,7 @@ class Ideas extends CI_Controller{
 				$this->load->view('myIdeas_view',$data);
 				
 			}else{
-				echo "false";
+				echo "database error";
 			}
 		
 		
