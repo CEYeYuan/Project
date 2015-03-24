@@ -34,5 +34,89 @@ class Ideas extends CI_Controller{
 	}
 
 
+
+	public function share_page(){
+		
+		if($this->session->userdata('is_logged_in')){
+			$this->load->view('share_view');
+		}else{
+			$this->load->view('pleaseLogin');
+		}
+
+	}
+
+	
+	public function share_ideas(){
+		if($this->session->userdata('is_logged_in')){
+
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('title','Email','
+			required|trim|xss_clean|callback_validate_credientials');
+			$this->form_validation->set_rules('title','Title','required|trim|xss_clean');
+			$this->form_validation->set_rules('description','Description','required|trim|xss_clean');
+			if ($this->form_validation->run()){
+				$this->load->model('model_idea');
+
+				if ($this->model_idea->add_idea()===true){
+					//echo "success!";	
+					$this->latestIdea();	
+				}	else{
+					echo "Problem adding to database";
+					$this->load->view('share_view');
+				}
+			}else{
+				$this->load->view('share_view');
+			}
+		}
+
+		else{
+			$this->load->view('pleaseLogin');
+		}
+	}
+
+
+	public function myIdeas(){
+		if ($this->session->userdata('is_logged_in')){
+			$this->load->model('model_idea');
+			if($this->model_idea->query_myIdea()){
+				/*foreach($result->result() as $row){
+					$url=base_url()."index.php/Ideas/index/$row->Iid";
+					echo "<a href='$url'>$row->Iid</a>";
+					echo "<br/>";
+				}*/
+				$data['result']=$this->model_idea->query_myIdea();
+				$this->load->view('myIdeas_view',$data);
+				
+			}else{
+				echo "false";
+			}
+		
+		
+		}
+		else{
+			$this->load->view('pleaseLogin');
+		}
+	}
+
+
+	public function latestIdea(){
+		if ($this->session->userdata('is_logged_in')){
+			$this->load->model('model_idea');
+
+	
+			if($Iid=$this->model_idea->latest_Iid()){
+				echo $Iid;
+				redirect(base_url()."index.php/Ideas/index/$Iid");
+				//$this->load->view('myIdeas_view');
+			}else{
+				echo "error, please try again!";
+			}
+
+		}else{
+			$this->load_view('pleaseLogin');
+		}
+	}
+
+
 }
 ?>

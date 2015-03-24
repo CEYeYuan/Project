@@ -19,14 +19,14 @@
 			<a href=<?php echo base_url() . "index.php/main/members"; ?>>Browse</a>
 		</li>
 		<li>
-			<a href=<?php echo base_url() . "index.php/main/share_page"; ?>>Share</a>
+			<a href=<?php echo base_url() . "index.php/Ideas/share_page"; ?>>Share</a>
 		</li>
 	</ul>
 
 
 	<a class="rightside" id="farRight" href='<?php echo base_url() . 
 		"index.php/main/logout"; ?>'>Logout</a>
-	<a class="rightside" href='<?php echo base_url(); ?>index.php/main/myIdeas'>My Idea</a>	
+	<a class="rightside" href='<?php echo base_url(); ?>index.php/Ideas/myIdeas'>My Idea</a>	
 	
 	
 
