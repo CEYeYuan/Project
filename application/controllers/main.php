@@ -123,7 +123,14 @@ class Main extends CI_Controller {
 			$this->load->model('model_users');
 			
 			if ($this->model_users->add_user()){
-				echo "success!";		
+
+				echo "success!";
+				$url=base_url()."index.php/main/members";
+				$data=array('username'=>$this->input->post('email'),
+					'is_logged_in'=>true
+					);
+				$this->session->set_userdata($data);
+				echo "<a href='$url'>Click Here to Login! </a>";		
 				}	
 
 			else{

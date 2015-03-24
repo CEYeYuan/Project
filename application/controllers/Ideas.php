@@ -4,7 +4,7 @@ class Ideas extends CI_Controller{
 		if ($this->session->userdata("is_logged_in")){
 			$this->loadView($Iid);
 		}else{
-			$this->load->view("pleasLogin");
+			$this->load->view("pleaseLogin");
 		}
 	}
 

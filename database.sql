@@ -30,11 +30,19 @@ CREATE TABLE Idea(
 	title VARCHAR(100) NOT NULL,
 	market ENUM('health','technology','education','finance','travel'),
 	description TEXT,
-	dateOfInit DATETIME NOT NULL
+	dateOfInit DATETIME NOT NULL,
+	numOfLike INTEGER NOT NULL DEFAULT 0,
+	numOfDislike INTEGER NOT NUll DEFAULT 0
 );
 
 
 CREATE TABLE Keywords(
 	Iid INTEGER REFERENCES Idea,
 	keyword VARCHAR(40)
+);
+
+CREATE TABLE Likes(
+	username VARCHAR(40),
+	Iid INTEGER,
+	attitude ENUM('-1','1')
 );
