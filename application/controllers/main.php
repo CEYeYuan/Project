@@ -163,7 +163,8 @@ class Main extends CI_Controller {
 				$this->load->model('model_idea');
 
 				if ($this->model_idea->add_idea()===true){
-					echo "success!";		
+					//echo "success!";	
+					$this->latestIdea();	
 				}	else{
 					echo "Problem adding to database";
 					$this->load->view('share_view');
@@ -182,14 +183,14 @@ class Main extends CI_Controller {
 	public function myIdeas(){
 		if ($this->session->userdata('is_logged_in')){
 			$this->load->model('model_idea');
-			if($result=$this->model_idea->query_myIdea()){
-				foreach($result->result() as $row){
+			if($this->model_idea->query_myIdea()){
+				/*foreach($result->result() as $row){
 					$url=base_url()."index.php/Ideas/index/$row->Iid";
 					echo "<a href='$url'>$row->Iid</a>";
 					echo "<br/>";
-				}
-
-				//$this->load->view('myIdeas_view');
+				}*/
+				$data['result']=$this->model_idea->query_myIdea();
+				$this->load->view('myIdeas_view',$data);
 				
 			}else{
 				echo "false";
@@ -199,6 +200,25 @@ class Main extends CI_Controller {
 		}
 		else{
 			$this->load->view('pleaseLogin');
+		}
+	}
+
+
+	public function latestIdea(){
+		if ($this->session->userdata('is_logged_in')){
+			$this->load->model('model_idea');
+
+	
+			if($Iid=$this->model_idea->latest_Iid()){
+				echo $Iid;
+				redirect(base_url()."index.php/Ideas/index/$Iid");
+				//$this->load->view('myIdeas_view');
+			}else{
+				echo "error, please try again!";
+			}
+
+		}else{
+			$this->load_view('pleaseLogin');
 		}
 	}
 }

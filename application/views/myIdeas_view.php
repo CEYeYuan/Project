@@ -9,9 +9,20 @@
 	<?php $this->load->view('menubar'); ?>
 </header>	
 <body>
-	<?php
-		echo $result->result();
-	?>
+	<ul>
+		<h2>
+			My Ideas:
+		</h2>
+		<?php
+		foreach($result->result() as $row){
+			echo "<li style='font-size:20px'>";
+			$url=base_url()."index.php/Ideas/index/$row->Iid";
+			echo "<a href='$url'>$row->title</a></br>"."Poineer Time:$row->dateOfInit";
+			echo "</li>";
+		}
+		?>
+	</ul>
+	
 	
 </body>
 </html>

@@ -46,6 +46,13 @@ class Model_idea extends CI_Model{
 
 	}
 
+	public function latest_Iid(){
+		$username=$this->session->userdata("username");
+		$sql="select Iid from Idea where username='$username' and Iid>=all(select Iid from Idea where username='$username')";
+		$result=$this->db->query($sql);
+		return $result->row()->Iid;
+	}
+
 
 
 
