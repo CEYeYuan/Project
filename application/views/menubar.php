@@ -16,10 +16,10 @@
 			<a href=<?php echo base_url() . "index.php/main/members"; ?>>Home</a>
 		</li>
 		<li class="active">
-			<a href=<?php echo base_url() . "index.php/main/members"; ?>>Browse</a>
+			<a href=<?php echo base_url() . "index.php/browse/index"; ?>>Browse</a>
 		</li>
 		<li>
-			<a href=<?php echo base_url() . "index.php/Ideas/share_page"; ?>>Share</a>
+			<a href=<?php echo base_url() . "index.php/Ideas/share"; ?>>Share</a>
 		</li>
 	</ul>
 

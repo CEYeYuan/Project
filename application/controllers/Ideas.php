@@ -1,5 +1,6 @@
 <?php
 class Ideas extends CI_Controller{
+	
 	public function index($Iid){
 		if ($this->session->userdata("is_logged_in")){
 			$this->loadView($Iid);
@@ -35,7 +36,7 @@ class Ideas extends CI_Controller{
 
 
 
-	public function share_page(){
+	public function share(){
 		
 		if($this->session->userdata('is_logged_in')){
 			$this->load->view('share_view');
@@ -83,11 +84,7 @@ class Ideas extends CI_Controller{
 				$this->share_ideas();
 			}
 			elseif($this->model_idea->query_myIdea()){
-				/*foreach($result->result() as $row){
-					$url=base_url()."index.php/Ideas/index/$row->Iid";
-					echo "<a href='$url'>$row->Iid</a>";
-					echo "<br/>";
-				}*/
+			
 				$data['result']=$this->model_idea->query_myIdea();
 				$this->load->view('myIdeas_view',$data);
 				

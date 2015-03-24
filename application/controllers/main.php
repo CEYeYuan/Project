@@ -59,6 +59,7 @@ class Main extends CI_Controller {
 	
 	public function members(){
 		if($this->session->userdata('is_logged_in')){
+			
 			$this->load->view('home_view');
 		}else{
 			$this->load->view('pleaseLogin');
