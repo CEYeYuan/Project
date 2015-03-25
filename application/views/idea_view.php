@@ -32,8 +32,7 @@
 		<li>
 			<h3>Pioneer Date:</h3>
 			<?php echo $dateOfInit; ?>		
-		</li>
-		<!--><a href="http://www.163.com" onclick="return confirm('Are you sure?')" >Delete </a><!-->
+		</li>		
 	</ul>
 	<?php 
 		if($username==$this->session->userdata('username')){
@@ -45,6 +44,21 @@
 			echo "<p>";
 			echo "<a href=$url_edit>Edit </a>";
 			echo "</p>";
+		}else{
+			$url_like=base_url()."index.php/Ideas/like";
+			$url_dislike=base_url()."index.php/Ideas/dislike";
+			echo "<p>";
+				echo "<a href=$url_like  >Like </a>";
+				if($like==1){
+					echo "liked";}
+			echo "</p>";
+
+			echo "<p>";
+				echo "<a href=$url_dislike  >Dislike </a>";
+				if($like==-1){
+					echo "disliked";}
+			echo "</p>";
+
 		}
 
 	?>

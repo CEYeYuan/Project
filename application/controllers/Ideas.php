@@ -17,7 +17,10 @@ class Ideas extends CI_Controller{
 		if ($this->session->userdata('is_logged_in')){
 			$this->load->model('model_idea');
 			if($result=$this->model_idea->query_byIid($Iid)){
-
+				//$this->load->model('model_idea');
+				$like=$this->model_idea->query_byIid_likes($Iid);
+				//echo $like;
+				$data['like']=$like;
 				$data['Iid']=$Iid;
 				$data['title']=$result->row()->title;
 				$data['market']=$result->row()->market;
@@ -60,7 +63,7 @@ class Ideas extends CI_Controller{
 
 				if ($this->model_idea->add_idea()===true){
 					//echo "success!";	
-					$this->latestIdea();	
+					$this->latestIdea();
 				}	else{
 					echo "Problem adding to database";
 					$this->load->view('share_view');

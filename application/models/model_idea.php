@@ -13,6 +13,7 @@ class Model_idea extends CI_Model{
 			'dateOfInit'=>date("Y-m-d H:i:s")
 	);
 		$query=$this->db->insert('Idea',$data);
+
 		if ($query){
 			return true;
 		}
@@ -58,7 +59,10 @@ class Model_idea extends CI_Model{
 
 	public function query_others(){
 		$username=$this->session->userdata("username");
-		$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+		//$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+
+		//query all (include the current user self)
+		$sql="select * from Idea  ";
 		$result=$this->db->query($sql);
 		if($result->num_rows()===0){
 			return 0;
@@ -142,5 +146,20 @@ class Model_idea extends CI_Model{
 	}}
 
 
+	public function query_byIid_likes($Iid){
+		$username=$this->session->userdata('username');
+		$sql="select attitude from Likes where Iid='$Iid' and username='$username'";
+		$result=$this->db->query($sql);
+		if ($result->num_rows()==0){
+			return 0;
+		}else{
+			return $result->row()->attitude;
+		}
+	}
+}	/*	
+		}*/
+	
 
-}
+
+
+

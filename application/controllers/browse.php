@@ -15,7 +15,7 @@ class browse extends CI_Controller{
 			$this->load->model('model_idea');
 			if ($this->model_idea->query_others()===0){
 				echo "We don't have any ideas posted yet, post your idea now!";
-				$this->share_ideas();
+				$this->load->view('share_view');
 			}elseif($result=$this->model_idea->query_others()){
 				$data['result']=$result;
 				$this->load->view('browse_view',$data);

@@ -42,7 +42,7 @@ CREATE TABLE Keywords(
 );
 
 CREATE TABLE Likes(
-	username VARCHAR(40),
-	Iid INTEGER,
-	attitude ENUM('-1','1')
+	username VARCHAR(40) NOT NULL,
+	Iid INTEGER NOT NULL,
+	attitude INTEGER NOT NULL DEFAULT 0
 );
