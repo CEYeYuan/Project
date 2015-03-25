@@ -45,8 +45,8 @@
 			echo "<a href=$url_edit>Edit </a>";
 			echo "</p>";
 		}else{
-			$url_like=base_url()."index.php/Ideas/like";
-			$url_dislike=base_url()."index.php/Ideas/dislike";
+			$url_like=base_url()."index.php/Ideas/like/$Iid";
+			$url_dislike=base_url()."index.php/Ideas/dislike/$Iid";
 			echo "<p>";
 				echo "<a href=$url_like  >Like </a>";
 				if($like==1){
@@ -54,7 +54,7 @@
 			echo "</p>";
 
 			echo "<p>";
-				echo "<a href=$url_dislike  >Dislike </a>";
+				echo "<a href=$url_dislike > Dislike </a>";
 				if($like==-1){
 					echo "disliked";}
 			echo "</p>";

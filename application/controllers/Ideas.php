@@ -125,7 +125,7 @@ class Ideas extends CI_Controller{
 	public function edit($Iid){
 		if($this->session->userdata('is_logged_in')){
 			$this->load->model("model_idea");
-			$result=$this->model_idea->edit_allowed($Iid);
+			$result=$this->model_idea->edit($Iid);
 			if ($result===false){
 				echo "You're not allowed to edit others' Idea !";
 				$this->load->view('home_view');		
@@ -144,7 +144,7 @@ class Ideas extends CI_Controller{
 	public function delete($Iid){
 		if($this->session->userdata('is_logged_in')){
 			$this->load->model("model_idea");
-			$result=$this->model_idea->delete_allowed($Iid);
+			$result=$this->model_idea->delete($Iid);
 			if ($result===false){
 				echo "You're not allowed to delete others' Idea !";
 				$this->load->view('home_view');		
@@ -158,6 +158,48 @@ class Ideas extends CI_Controller{
 		}else{
 			$this->load_view('pleaseLogin');
 		}
+	}
+
+
+	public function like($Iid){
+		if($this->session->userdata('is_logged_in')){
+			$this->load->model("model_idea");
+			$result=$this->model_idea->like($Iid);
+			if ($result===false){
+				echo "You're not allowed to like your own Idea !";
+				$this->loadView($Iid);		
+			}elseif($result===1){
+				//echo "delete successfully!";
+				$this->loadView($Iid);
+			}else{
+				echo "database error!";
+			}
+
+		}else{
+			$this->load_view('pleaseLogin');
+		}
+
+	}
+
+
+	public function dislike($Iid){
+		if($this->session->userdata('is_logged_in')){
+			$this->load->model("model_idea");
+			$result=$this->model_idea->dislike($Iid);
+			if ($result===false){
+				echo "You're not allowed to like your own Idea !";
+				$this->loadView($Iid);		
+			}elseif($result===1){
+				//echo "delete successfully!";
+				$this->loadView($Iid);
+			}else{
+				echo "database error!";
+			}
+
+		}else{
+			$this->load_view('pleaseLogin');
+		}
+
 	}
 
 
