@@ -34,6 +34,7 @@
 			<?php echo $dateOfInit; ?>		
 		</li>
 	</ul>
+ 
 	
 	
 </body>

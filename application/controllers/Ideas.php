@@ -119,5 +119,8 @@ class Ideas extends CI_Controller{
 	}
 
 
+
+
+
 }
 ?>

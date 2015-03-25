@@ -56,6 +56,18 @@ class Model_idea extends CI_Model{
 	}
 
 
+	public function query_others(){
+		$username=$this->session->userdata("username");
+		$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+		$result=$this->db->query($sql);
+		if($result->num_rows()===0){
+			return 0;
+		}elseif ($result->num_rows()>=1){
+			return $result;
+		}else{
+			return false;
+		}
+	}
 
 
 
