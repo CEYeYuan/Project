@@ -71,4 +71,44 @@ class Model_idea extends CI_Model{
 
 
 
+	public function filter_idea(){
+
+		$username=$this->session->userdata('username');
+		$health=$this->input->post('health');
+		$technology=$this->input->post('technology');
+		$education=$this->input->post('education');
+		$finance=$this->input->post('finance');
+		$travel=$this->input->post('travel');
+		$sort=$this->input->post('sort');
+		$order=$this->input->post('order');
+		$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+		if ($finance==false){
+			$sql=$sql."and Iid not in (select Iid from Idea where market='finance')";
+		}
+		if ($health==false){
+			$sql=$sql."and Iid not in (select Iid from Idea where market='health')";
+		}
+		if ($technology==false){
+			$sql=$sql."and Iid not in (select Iid from Idea where market='technology')";
+		}
+		if ($travel==false){
+			$sql=$sql."and Iid not in (select Iid from Idea where market='travel')";
+		}
+		if ($education==false){
+			$sql=$sql."and Iid not in (select Iid from Idea where market='education')";
+		}
+		$sql=$sql."order by $sort $order";
+		$result=$this->db->query($sql);
+		if($result->num_rows()===0){
+			return 0;
+		}elseif($result->num_rows()>=1){
+			return $result;
+		}else{
+			return false;
+		}
+
+	}
+
+
+
 }

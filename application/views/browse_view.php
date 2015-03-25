@@ -13,7 +13,7 @@
 	<div>
 		
 		<form method='post' action='<?php echo base_url()."index.php/browse/filter"?>'>
-			<h3>Filter:</h3>	
+			<h3>Filter by Market:</h3>	
 			<p>
 				<input type='checkbox' name='health' checked="checked" /> health
 				<input type='checkbox' name='technology' checked="checked" /> technology
