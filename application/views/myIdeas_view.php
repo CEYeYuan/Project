@@ -17,7 +17,8 @@
 		foreach($result->result() as $row){
 			echo "<li style='font-size:20px'>";
 			$url=base_url()."index.php/Ideas/index/$row->Iid";
-			echo "<a href='$url'>$row->title</a></br>"."Poineer Time:$row->dateOfInit";
+			echo "<a href='$url'>$row->title</a>";
+			echo "</br>Poineer Time:$row->dateOfInit";
 			echo "</li>";
 		}
 		?>

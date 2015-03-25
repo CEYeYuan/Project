@@ -114,12 +114,48 @@ class Ideas extends CI_Controller{
 			}
 
 		}else{
-			$this->load_view('pleaseLogin');
+			$this->load->view('pleaseLogin');
 		}
 	}
 
 
+	public function edit($Iid){
+		if($this->session->userdata('is_logged_in')){
+			$this->load->model("model_idea");
+			$result=$this->model_idea->edit_allowed($Iid);
+			if ($result===false){
+				echo "You're not allowed to edit others' Idea !";
+				$this->load->view('home_view');		
+			}elseif($result->num_rows()>=1){
+				$data['result']=$result;
+				$this->load->view('edit_view',$data);
+			}else{
+				echo "database error!";
+			}
 
+		}else{
+			$this->load_view('pleaseLogin');
+		}
+	}
+
+	public function delete($Iid){
+		if($this->session->userdata('is_logged_in')){
+			$this->load->model("model_idea");
+			$result=$this->model_idea->delete_allowed($Iid);
+			if ($result===false){
+				echo "You're not allowed to delete others' Idea !";
+				$this->load->view('home_view');		
+			}elseif($result===1){
+				echo "delete successfully!";
+				$this->load->view('home_view');
+			}else{
+				echo "database error!";
+			}
+
+		}else{
+			$this->load_view('pleaseLogin');
+		}
+	}
 
 
 }

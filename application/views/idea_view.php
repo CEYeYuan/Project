@@ -33,8 +33,22 @@
 			<h3>Pioneer Date:</h3>
 			<?php echo $dateOfInit; ?>		
 		</li>
+		<!--><a href="http://www.163.com" onclick="return confirm('Are you sure?')" >Delete </a><!-->
 	</ul>
- 
+	<?php 
+		if($username==$this->session->userdata('username')){
+			$url_edit=base_url()."index.php/Ideas/edit/$Iid";
+			$url_delete=base_url()."index.php/Ideas/delete/$Iid";
+			echo "<p>";
+			echo "<a href=$url_delete  >Delete </a>";
+			echo "</p>";
+			echo "<p>";
+			echo "<a href=$url_edit>Edit </a>";
+			echo "</p>";
+		}
+
+	?>
+
 	
 	
 </body>

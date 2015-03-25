@@ -110,5 +110,37 @@ class Model_idea extends CI_Model{
 	}
 
 
+	public function edit_allowed($Iid){
+		$username=$this->session->userdata('username');
+		$sql="select username from Idea where Iid=$Iid";
+		$result=$this->db->query($sql);
+		if( $result->row()->username!=$username){
+			return false;
+		}else{
+			$sql="select * from Idea where Iid=$Iid";
+			$result=$this->db->query($sql);
+			return $result;
+		}
+		
+	}
+
+	public function delete_allowed($Iid){
+		$username=$this->session->userdata('username');
+		$sql="select username from Idea where Iid=$Iid";
+		$result=$this->db->query($sql);
+		if( $result->row()->username!=$username){
+			return false;
+		}else{
+			$sql="delete from Idea where Iid='$Iid';";
+			$result=$this->db->query($sql);
+			$sql="delete from Keywords where Iid='$Iid'";
+			$result=$this->db->query($sql);
+			$sql="delete from Likes where Iid='$Iid'";
+			$result=$this->db->query($sql);
+			return 1;
+		
+	}}
+
+
 
 }
