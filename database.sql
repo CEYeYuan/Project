@@ -30,9 +30,7 @@ CREATE TABLE Idea(
 	title VARCHAR(100) NOT NULL,
 	market ENUM('health','technology','education','finance','travel'),
 	description TEXT,
-	dateOfInit DATETIME NOT NULL,
-	numOfLike INTEGER NOT NULL DEFAULT 0,
-	numOfDislike INTEGER NOT NUll DEFAULT 0
+	dateOfInit DATETIME NOT NULL
 );
 
 

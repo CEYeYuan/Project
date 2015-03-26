@@ -87,7 +87,7 @@ class Model_idea extends CI_Model{
 		$order=$this->input->post('order');
 		//$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
 		//query all (include the current user self)
-		$sql="select * from Idea  ";
+		$sql="select * from Idea  where true ";
 		if ($finance==false){
 			$sql=$sql."and Iid not in (select Iid from Idea where market='finance')";
 		}
@@ -200,6 +200,30 @@ class Model_idea extends CI_Model{
 			}
 			
 		}
+	}
+
+
+	public function query_by_marktet(){
+		$sql="select * from Idea where market='health'";
+		$result=$this->db->query($sql);
+		$data['health']=$result->num_rows();
+
+		$sql="select * from Idea where market='education'";
+		$result=$this->db->query($sql);
+		$data['education']=$result->num_rows();
+
+		$sql="select * from Idea where market='technology'";
+		$result=$this->db->query($sql);
+		$data['technology']=$result->num_rows();
+
+		$sql="select * from Idea where market='finance'";
+		$result=$this->db->query($sql);
+		$data['finance']=$result->num_rows();
+
+		$sql="select * from Idea where market='travel'";
+		$result=$this->db->query($sql);
+		$data['travel']=$result->num_rows();
+		return $data;
 	}
 
 

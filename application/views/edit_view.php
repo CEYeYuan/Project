@@ -16,7 +16,7 @@
 	
 	<body>
 		<div>
-			<form action='<?php echo base_url();?>/index.php/Ideas/share_ideas' method="post">
+			<form action='<?php echo base_url()."/index.php/Ideas/edit_submit/" ?>' method="post">
 				<?php echo validation_errors();?>
 				<p>Title
 					<input type="text" name="title" value=<?php echo $result->row()->title;?> /> 
