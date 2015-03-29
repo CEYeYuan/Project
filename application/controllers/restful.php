@@ -11,4 +11,6 @@ class restful extends CI_Controller{
 		}
 		
 	
-	}}
+	}
+	
+}

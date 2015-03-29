@@ -13,6 +13,19 @@ class Model_idea extends CI_Model{
 			'dateOfInit'=>date("Y-m-d H:i:s")
 	);
 		$query=$this->db->insert('Idea',$data);
+		$Iid=$this->latest_Iid();
+		$keywords = $this->input->post('keywords');
+		$token = strtok($keywords, " ");
+		while ($token !== false)
+		{
+			$data=array(
+			'keyword'=>$token,
+			'Iid'=>$Iid
+			);
+			$query=$this->db->insert('Keywords',$data);
+			$token = strtok(" ");
+		} 
+		
 
 		if ($query){
 			return true;
@@ -227,6 +240,43 @@ class Model_idea extends CI_Model{
 	}
 
 
+	public function edit_submit($Iid){
+		$username=$this->session->userdata('username');
+		$sql="select username from Idea where Iid=$Iid";
+		$result=$this->db->query($sql);
+		if( $result->row()->username!=$username){
+			return false;
+		}else{
+			$title=$this->input->post('title');
+			$description=$this->input->post('description');
+			$market=$this->input->post('market');
+			$sql="update Idea set title='$title',market='$market',description='$description' where Iid='$Iid'";
+			$result=$this->db->query($sql);
+			$sql="delete from Keywords where Iid='$Iid'";
+			$result=$this->db->query($sql);
+			$keywords = $this->input->post('keywords');
+			$token = strtok($keywords, " ");
+			while ($token !== false){
+				$data=array(
+				'keyword'=>$token,
+				'Iid'=>$Iid
+				);
+				$query=$this->db->insert('Keywords',$data);
+				$token = strtok(" ");
+			} 
+			return 1;
+		
+	}}
+
+
+	public function query_keyword($Iid){
+		$sql="select keyword from Keywords where Iid='$Iid'";
+		$result=$this->db->query($sql);
+		if ($result->num_rows()>=1)
+			return $result;
+		else
+			return false;
+	}
 
 }	
 	

@@ -17,7 +17,7 @@ class Ideas extends CI_Controller{
 		if ($this->session->userdata('is_logged_in')){
 			$this->load->model('model_idea');
 			if($result=$this->model_idea->query_byIid($Iid)){
-				//$this->load->model('model_idea');
+				$this->load->model('model_idea');
 				$like=$this->model_idea->query_byIid_likes($Iid);
 				//echo $like;
 				$data['like']=$like;
@@ -27,7 +27,8 @@ class Ideas extends CI_Controller{
 				$data['description']=$result->row()->description;
 				$data['username']=$result->row()->username;
 				$data['dateOfInit']=$result->row()->dateOfInit;
-
+				$data['keywords']=$this->model_idea->query_keyword($Iid);	
+				//echo "good";
 				$this->load->view("idea_view",$data);
 			}else{
 				echo "Error, please try again";
@@ -58,6 +59,7 @@ class Ideas extends CI_Controller{
 			required|trim|xss_clean|callback_validate_credientials');
 			$this->form_validation->set_rules('title','Title','required|trim|xss_clean');
 			$this->form_validation->set_rules('description','Description','required|trim|xss_clean');
+			$this->form_validation->set_rules('keywords','keywords','required|xss_clean');
 			if ($this->form_validation->run()){
 				$this->load->model('model_idea');
 
@@ -131,6 +133,8 @@ class Ideas extends CI_Controller{
 				$this->load->view('home_view');		
 			}elseif($result->num_rows()>=1){
 				$data['result']=$result;
+				$data['title']=$result->row()->title;
+				$data['keywords']=$this->model_idea->query_keyword($Iid);
 				$this->load->view('edit_view',$data);
 			}else{
 				echo "database error!";
@@ -200,6 +204,26 @@ class Ideas extends CI_Controller{
 			$this->load_view('pleaseLogin');
 		}
 
+	}
+
+
+	public function edit_submit($Iid){
+		if($this->session->userdata('is_logged_in')){
+			$this->load->model("model_idea");
+			$result=$this->model_idea->edit_submit($Iid);
+			if ($result===false){
+				echo "You're not allowed to edit others' Idea !";
+				$this->load->view('home_view');		
+			}elseif($result===1){
+				echo "edit successfully!";
+				$this->loadView($Iid);
+			}else{
+				echo "database error!";
+			}
+
+		}else{
+			$this->load_view('pleaseLogin');
+		}
 	}
 
 

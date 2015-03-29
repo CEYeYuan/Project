@@ -2,7 +2,8 @@
 <html>
 <head>
 	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/navbar.css' type='text/css' />
-	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/homeBackground.css' type='text/css' />		<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
+	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/homeBackground.css' type='text/css' />		
+	<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
 	<title>Browse Ideas</title>
 </head>
 <header>
@@ -33,8 +34,20 @@
 			<h3>Pioneer Date:</h3>
 			<?php echo $dateOfInit; ?>		
 		</li>		
-	</ul>
 	<?php 
+		if ($keywords!==false){
+			echo "<li>";
+			echo "<h3>Keywords: </h3>";
+			echo "<ul>";
+			foreach($keywords->result() as $row){
+				echo "<li>";
+				echo $row->keyword;
+				echo "</li>";
+			}
+			echo "</ul>";
+			echo "</li>";
+		}
+		echo "</ul>";
 		if($username==$this->session->userdata('username')){
 			$url_edit=base_url()."index.php/Ideas/edit/$Iid";
 			$url_delete=base_url()."index.php/Ideas/delete/$Iid";

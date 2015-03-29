@@ -15,6 +15,7 @@
 
 	
 	<body>
+
 		<div>
 			<form action='<?php echo base_url();?>/index.php/Ideas/share_ideas' method="post">
 				<?php echo validation_errors();?>
@@ -35,10 +36,16 @@
 					<textarea name="description" rows="6" cols="40"></textarea>	
 				</p>	
 				
+				<p>Keywords(seprated by white space, sample: cool interesting)</p>
+				<p>
+					<input type="text" name="keywords" size="40"/> 
+				</p>	
+
 				<p>
 					<input type="submit" />
 		
-				</p>		
+				</p>	
+				
 
 				
 			</form>	

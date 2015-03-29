@@ -16,10 +16,11 @@
 	
 	<body>
 		<div>
-			<form action='<?php echo base_url()."/index.php/Ideas/edit_submit/" ?>' method="post">
+			<?php $url=base_url()."index.php/Ideas/edit_submit/".$result->row()->Iid;?>
+			<form action=<?php echo"$url";?>	 method="post">
 				<?php echo validation_errors();?>
 				<p>Title
-					<input type="text" name="title" value=<?php echo $result->row()->title;?> /> 
+					<input type="text/plain" name="title" value= "<?php echo $title;?> "/> 
 				</p>
 
 				<p>Market
@@ -59,6 +60,27 @@
 					<textarea name="description" rows="6" cols="40">
 						<?php echo $result->row()->description;?>	
 					</textarea>	
+				</p>	
+
+				<p>Keywords(seprated by white space, sample: cool interesting)</p>
+				<p>
+					<?php 
+						$i=0;
+						$kwords="";
+						if ($keywords===false){
+							echo "<input type='text' name='keywords' />";
+
+						}else{
+							while($i<$keywords->num_rows()){
+							 $kwords=$kwords." ".$keywords->row($i)->keyword;
+							 $i++;
+							}
+						echo "<input type='text' name='keywords' value='$kwords' />";
+						//
+						}
+						
+					?>
+					
 				</p>	
 				
 				<p>
