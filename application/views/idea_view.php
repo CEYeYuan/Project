@@ -31,7 +31,7 @@
 		</li>
 
 		<li>
-			<h3>Pioneer Date:</h3>
+			<h3>Initiated Date:</h3>
 			<?php echo $dateOfInit; ?>		
 		</li>		
 	<?php 

@@ -5,10 +5,10 @@
 	<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />		<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
 	<title>Browse</title>
 </head>
-<head>
+<header>
 
 	<?php $this->load->view('menubar'); ?>
-</head>
+</header>
 <body>
 	<div>
 		

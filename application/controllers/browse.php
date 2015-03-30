@@ -43,8 +43,9 @@ class browse extends CI_Controller{
 				$this->load->model('model_idea');
 				$result=$this->model_idea->filter_idea();
 				if ($result===0){	
-					echo "No results in the selected market!";
+					echo "No results found!";
 					$url=base_url()."index.php/browse/browseAll";
+					//$this->browseAll();
 					echo "<p>";
 					echo "<a href='$url'> Search again! </a>";
 					echo "</p>";
@@ -64,7 +65,7 @@ class browse extends CI_Controller{
 			//$this->load->view('browse_view',$data);
 
 		}else{
-			$this->load_view('pleaseLogin');
+			$this->load->view('pleaseLogin');
 		}
 	}
 }

@@ -38,10 +38,10 @@ class restful extends REST_Controller
     	$day2=$this->get('date2');
     	$this->load->model('model_idea');
     	$result=$this->model_idea->get_top($num,$day1,$day2);
-    	echo $day1;
-    	echo $day2;
+        $data['json']=json_encode($result);
+        $this->load->view('rest_json_view',$data);
 	
-		print json_encode($result);
+		
 		
     }
 
@@ -52,11 +52,8 @@ class restful extends REST_Controller
     	$day2=$this->input->post('date2');
     	$this->load->model('model_idea');
     	$result=$this->model_idea->get_top($num,$day1,$day2);
-    	echo $day1;
-    	echo $day2;
-	
-		print json_encode($result);
-		
+	    $data['json']=json_encode($result);
+        $this->load->view('rest_json_view',$data);
     }
 }
 ?>

@@ -98,7 +98,12 @@ class Model_idea extends CI_Model{
 		$travel=$this->input->post('travel');
 		$sort=$this->input->post('sort');
 		$order=$this->input->post('order');
-		$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+		$keyword=$this->input->post('keyword');
+		if (empty($keyword))
+			$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+		else 
+			$sql="select * from Idea natural join Keywords where Iid not in (select Iid from Idea where username='$username')
+				and keyword='$keyword' ";
 		//query all (include the current user self)
 		//$sql="select * from Idea  where true ";
 		if ($finance==false){
