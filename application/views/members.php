@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="navigation.css" type="text/css" />
+		<link rel="stylesheet" href="navigation.css" type="text/css" /><link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 		$(document).ready(function() {
 			jQuery('.tab-links a').on('click', function() {

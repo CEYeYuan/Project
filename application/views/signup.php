@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/stylesheets/log.css" 
  type="text/css" media="screen"/>
+<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<meta charset="utf-8"/>
 	<title>Sign up page</title>

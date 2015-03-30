@@ -70,12 +70,12 @@ class Model_idea extends CI_Model{
 	}
 
 
-	public function query_others(){
+	public function query_all(){
 		$username=$this->session->userdata("username");
-		//$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+		$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username')  ";
 
 		//query all (include the current user self)
-		$sql="select * from Idea  ";
+		//$sql="select * from Idea  ";
 		$result=$this->db->query($sql);
 		if($result->num_rows()===0){
 			return 0;
@@ -98,9 +98,9 @@ class Model_idea extends CI_Model{
 		$travel=$this->input->post('travel');
 		$sort=$this->input->post('sort');
 		$order=$this->input->post('order');
-		//$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
+		$sql="select * from Idea  where Iid not in (select Iid from Idea where username='$username') ";
 		//query all (include the current user self)
-		$sql="select * from Idea  where true ";
+		//$sql="select * from Idea  where true ";
 		if ($finance==false){
 			$sql=$sql."and Iid not in (select Iid from Idea where market='finance')";
 		}
@@ -274,6 +274,30 @@ class Model_idea extends CI_Model{
 		$result=$this->db->query($sql);
 		if ($result->num_rows()>=1)
 			return $result;
+		else
+			return false;
+	}
+
+	public function get_top($num,$day1,$day2){
+		//$sql="select * from Idea where Iid='$num'";
+		$sql="drop view if exists likecount ;";
+		$this->db->query($sql);
+
+		$sql="drop view if exists likeNum ;";
+		$this->db->query($sql);
+
+		
+		$sql="create view likecount as select * from Likes where attitude='1';";
+		$this->db->query($sql);
+
+		$sql="create view likeNum as 
+		select Iid,count(*) as numOfLikes from likecount group by Iid order by numOfLikes DESC ;";
+		$this->db->query($sql);
+		$sql="select * from likeNum natural join Idea where dateOfInit>='$day1' and dateOfInit<='$day2' limit $num  ;";
+
+		$result=$this->db->query($sql);
+		if ($result->num_rows()>=1)
+			return $result->result();
 		else
 			return false;
 	}

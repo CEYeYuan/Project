@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/navbar.css' type='text/css' />
-	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/homeBackground.css' type='text/css' />		
+	<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />
 	<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
 	<title>Browse Ideas</title>
 </head>
@@ -46,6 +46,9 @@
 			}
 			echo "</ul>";
 			echo "</li>";
+		}else{
+			echo "<li>";
+			echo "<h3>Keywords: </h3>";
 		}
 		echo "</ul>";
 		if($username==$this->session->userdata('username')){

@@ -2,7 +2,7 @@
 <HTML>
 	<head>
 		<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/navbar.css' type='text/css' />
-		<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/homeBackground.css' type='text/css' />
+		<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />
 		<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
 		<title>Share Your Ideas</title>
 
@@ -20,7 +20,7 @@
 			<form action=<?php echo"$url";?>	 method="post">
 				<?php echo validation_errors();?>
 				<p>Title
-					<input type="text/plain" name="title" value= "<?php echo $title;?> "/> 
+					<input type="text/plain" name="title" value= "<?php echo $title;?>" size="30" /> 
 				</p>
 
 				<p>Market
@@ -68,14 +68,14 @@
 						$i=0;
 						$kwords="";
 						if ($keywords===false){
-							echo "<input type='text' name='keywords' />";
+							echo "<input type='text' name='keywords' size='35'/>";
 
 						}else{
 							while($i<$keywords->num_rows()){
 							 $kwords=$kwords." ".$keywords->row($i)->keyword;
 							 $i++;
 							}
-						echo "<input type='text' name='keywords' value='$kwords' />";
+						echo "<input type='text' name='keywords' value='$kwords' size='35' />";
 						//
 						}
 						

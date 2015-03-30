@@ -2,6 +2,7 @@
 body {
 padding: 0;
 margin: 0;
+
 }
 
 #navigation{
@@ -13,6 +14,7 @@ padding-top: 15px;
 padding-bottom: 10px;
 border-bottom: 1px solid #C0C0C0;
 list-style-type: none;
+background-color:#F0F1F1;
 
 }
 
@@ -29,7 +31,7 @@ display: inline-block;
 }
 
 #navigation a:hover {
-background-color: blue;
+background-color: #FFFFFF;
 display: block;
 }
 

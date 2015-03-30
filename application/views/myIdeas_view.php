@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/navbar.css' type='text/css' />
-	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/homeBackground.css' type='text/css' />		
+	<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />		
 	<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
 	<title>Browse My Ideas</title>
 </head>
@@ -16,10 +16,11 @@
 		</h2>
 		<?php
 		foreach($result->result() as $row){
-			echo "<li style='font-size:20px'>";
+
+			echo "<li style='font-size:15px'>";
 			$url=base_url()."index.php/Ideas/index/$row->Iid";
-			echo "<a href='$url'>$row->title</a>";
-			echo "</br>Poineer Time:$row->dateOfInit";
+			echo "<a href='$url'><h3>$row->title</h3></a>";
+			echo "<ul><li>Time:$row->dateOfInit</li></ul>";
 			echo "</li>";
 		}
 		?>

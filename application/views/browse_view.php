@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/navbar.css' type='text/css' />
-	<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/homeBackground.css' type='text/css' />		<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
+	<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />		<script type="../views/text/javascript" src="js/jquery-2.1.3.js"></script>
 	<title>Browse</title>
 </head>
 <head>
@@ -20,6 +20,10 @@
 				<input type='checkbox' name='education' checked="checked" /> education					
 				<input type='checkbox' name='finance' checked="checked" /> finance
 				<input type='checkbox' name='travel' checked="checked" /> travel
+			</p>
+			<h3>Filter by Keywords:</h3>	
+			<p>
+				<input type='text' name='keyword'  /> 
 			</p>
 			<h3>Sort by:</h3>	
 			<p>	
@@ -44,6 +48,7 @@
 		<ul>
 		<?php 
 		foreach($result->result() as $row){
+			echo "<p>";
 			echo "<li>";
 				$url=base_url()."index.php/Ideas/index/$row->Iid";
 				echo "<a href=$url> $row->title </a> ";
@@ -63,6 +68,7 @@
 				echo $row->market;
 			echo "</li>";
 			echo "</ul>";	
+			echo "</p>";
 		}
 
 	?>

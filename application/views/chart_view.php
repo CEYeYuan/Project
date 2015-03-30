@@ -3,6 +3,7 @@
 	<head>
 		<title>Home</title>
 		<link rel='stylesheet' href='<?php echo base_url(); ?>assets/stylesheets/navbar.css' type='text/css' />
+<link type='text/css' rel='stylesheet' href='<?php echo base_url()?>assets/stylesheets/general.css' />
 		<script  src='<?php echo base_url(); ?>assets/js/Chart.js'></script>
 		<style>
 			body{
