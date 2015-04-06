@@ -8,7 +8,13 @@ RewriteEngine On
 # RewriteBase /mypage/test1/
 
 # DAVID: I am not sure if I need to write /trunk/communityFund/
-RewriteBase /communityFund/
+
+RewriteEngine on
+RewriteBase /startup/
+RewriteRule ^([0-9+])/((?:[0-9]{4})-(?:[0]?[1-9]|[1][0-2])-(?:[0]?[1-9]|[1|2][0-9]|[3][0|1]))/((?:[0-9]{4})-(?:[0]?[1-9]|[1][0-2])-(?:[0]?[1-9]|[1|2][0-9]|[3][0|1]))$ restful/ideas?num=$1&date1=$2&date2=$3 [NC,L]
+
+
+#RewriteBase /communityFund/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]

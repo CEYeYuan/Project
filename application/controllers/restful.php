@@ -27,7 +27,7 @@ class restful extends REST_Controller
 			echo "database error";
 			$this->load->view("chart_view",$data);
 		}
-        // Display all books
+        
     }
 
 

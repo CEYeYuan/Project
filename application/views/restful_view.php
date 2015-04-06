@@ -21,41 +21,9 @@
 
 	<div>
 		<h2>Search the ideas</h2>
-		<h3>Get: </h3>
-		<?php $url=base_url()."index.php/restful/ideas" ;?>
-		<form action='<?php echo $url; ?>' method="get">
-			<p>Starting Date
-				<input type="text" name='date1' value='2015-03-29 13:42:25'/>
-			</p>
-			<p>Ending Date
-				<input type="text" name='date2'  value='2015-03-29 13:42:25'/>
-			</p>
-			<p> Numbers:
-				<input type="text" name='num' />
-			</p>
-			<p>
-				<input type='submit'  />
-			</p>
-
-		</form>
-
-		<h3>Post: </h3>
-		<?php $url=base_url()."index.php/restful/ideas" ;?>
-		<form action='<?php echo $url; ?>' method="post">
-			<p>Starting Date
-				<input type="text" name='date1' value='2015-03-29 13:42:25'/>
-			</p>
-			<p>Ending Date
-				<input type="text" name='date2'  value='2015-03-29 13:42:25'/>
-			</p>
-			<p> Numbers:
-				<input type="text" name='num' />
-			</p>
-			<p>
-				<input type='submit'  />
-			</p>
-
-		</form>
+		<h3>Go to this url: </h3>	
+		<a href='<?php echo base_url()."index.php/restful/ideas/date1/2015-01-29/date2/2015-03-29/num/3" ?>'><?php echo base_url()."index.php/restful/ideas/date1/2015-01-29/date2/2015-03-29/num/3" ?> </a>
+		<h3>date1 means starting date while date2 means ending date</h3>
 		
 	</div>
 	
