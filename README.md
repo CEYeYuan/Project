@@ -1,5 +1,4 @@
 
-1.1 Description
  a simple web project that allows users to submit ideas about “Start-up” companies. A start-up idea includes information
 about the title of the idea, a short description (a couple of paragraphs), the industry or market it
 belongs to from a list of at least 5 pre-defined choices (e.g., health, technology, education, finance,
@@ -16,8 +15,10 @@ disliking it. Your project is expected to support the following use cases:
 5. User can navigate already submitted ideas of other users.
 6. User can see details of a specific idea (an individual page for each idea is expected).
 7. User can express preference in favor or against an idea (like or dislike function).
-2 Phase II
-2.1 Description
+
+
+</br>
+
  expand the project by providing a simple
 RESTful interface to your service. The RESTful interface will provide two methods:
 1. A method that retrieves the best k ideas submitted in a specified range of dates (e.g., you
